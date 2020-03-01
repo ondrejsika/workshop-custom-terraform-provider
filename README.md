@@ -15,6 +15,35 @@ Alias: [sika.link/if20-terraform](https://sika.link/if20-terraform)
 
 API Server - https://github.com/ondrejsika/demo-cloud-provider/blob/master/server.py
 
+I run two Demo Cloud instances:
+
+- prod - https://demo-cloud-prod.panda.k8s.oxs.cz/
+- dev - https://demo-cloud-dev.panda.k8s.oxs.cz/
+
+Demo cloud has two resources: Box and Text
+
+You can create a box and put some texts into box:
+
+You can try it by curl:
+
+```
+curl -X POST --data '{"name": "Hello Box"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/
+curl -X POST --data '{"text": "Hello"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/
+curl -X POST --data '{"text": "World"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/
+```
+
+Check the https://demo-cloud-dev.panda.k8s.oxs.cz/
+
+See your objects? Let's update them:
+
+```
+curl -X PUT --data '{"text": "Ahoj"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/5/
+curl -X PUT --data '{"text": "Svete"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/6/
+```
+
+Check the https://demo-cloud-dev.panda.k8s.oxs.cz/ again
+
+
 ### API
 
 #### GET /v1/box/
