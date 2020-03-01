@@ -190,7 +190,9 @@ wget https://raw.githubusercontent.com/ondrejsika/terraform-provider-demo/master
 We use Resty library, we have to install it:
 
 ```
-go get -v github.com/go-resty/resty/v2
+go get github.com/go-resty/resty/v2
+go mod tidy
+go mod vendor
 ```
 
 See `go.mod` and `go.sum`:
