@@ -15,6 +15,63 @@ Alias: [sika.link/if20-terraform](https://sika.link/if20-terraform)
 
 API Server - https://github.com/ondrejsika/demo-cloud-provider/blob/master/server.py
 
+### API
+
+#### GET /v1/box/
+
+Response:
+
+```json
+[
+  {"id": 1, "name": "Box 1"},
+  {"id": 2, "name": "Box 1"}
+]
+```
+
+#### POST /v1/box
+
+Request:
+
+```json
+{"name": "Box 1"}
+```
+
+Response:
+
+```json
+{"box_id": 1}
+```
+
+#### GET /v1/box/:box_id
+
+Response:
+
+```json
+{"id": 1, "name": "Box 1"}
+```
+
+#### PUT /v1/box/:box_id
+
+Request:
+
+```json
+{"name": "Box 1 Update"}
+```
+
+Response:
+
+```json
+{"ok": true}
+```
+
+#### DELETE /v1/box/:box_id
+
+Response:
+
+```json
+{"ok": true}
+```
+
 
 ## Setup Go Project for terraform-provider-demo
 
