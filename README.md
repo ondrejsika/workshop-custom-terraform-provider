@@ -167,6 +167,17 @@ mkdir -p src/github.com/ondrejsika/terraform-provider-demo
 cd src/github.com/ondrejsika/terraform-provider-demo
 ```
 
+Create gitignore:
+
+```gitignore
+# .gitignore
+.VS_Code
+.DS_Store
+.terraform
+terraform.tfstate*
+terraform-provider-demo
+```
+
 Init Go module
 
 ```
