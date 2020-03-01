@@ -24,11 +24,11 @@ Response:
 ```json
 [
   {"id": 1, "name": "Box 1"},
-  {"id": 2, "name": "Box 1"}
+  {"id": 2, "name": "Box 2"}
 ]
 ```
 
-#### POST /v1/box
+#### POST /v1/box/
 
 Request:
 
@@ -42,7 +42,7 @@ Response:
 {"box_id": 1}
 ```
 
-#### GET /v1/box/:box_id
+#### GET /v1/box/:box_id/
 
 Response:
 
@@ -50,7 +50,7 @@ Response:
 {"id": 1, "name": "Box 1"}
 ```
 
-#### PUT /v1/box/:box_id
+#### PUT /v1/box/:box_id/
 
 Request:
 
@@ -64,7 +64,62 @@ Response:
 {"ok": true}
 ```
 
-#### DELETE /v1/box/:box_id
+#### DELETE /v1/box/:box_id/
+
+Response:
+
+```json
+{"ok": true}
+```
+
+#### GET /v1/box/:box_id/text/
+
+Response:
+
+```json
+[
+  {"id": 1, "box_id": 1, "text": "Text 1"},
+  {"id": 2, "box_id": 1, "text": "Text 2"}
+]
+```
+
+#### POST /v1/box/:box_id/text/
+
+Request:
+
+```json
+{"text": "Text 1"}
+```
+
+Response:
+
+```json
+{"text_id": 1}
+```
+
+#### GET /v1/box/:box_id/text/:text_id/
+
+Response:
+
+```json
+{"id": 1, "box_id": 1, "text": "Text 1"}
+```
+
+#### PUT /v1/box/:box_id/text/:text_id/
+
+Request:
+
+```json
+{"text": "Text 1 Update"}
+```
+
+Response:
+
+```json
+{"ok": true}
+```
+
+#### DELETE /v1/box/:box_id/text/:text_id/
 
 Response:
 
