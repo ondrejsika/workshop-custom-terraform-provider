@@ -3,6 +3,8 @@
     2020 Ondrej Sika <ondrej@ondrejsika.com>
     https://github.com/ondrejsika/workshop-custom-terraform-provider
 
+Alias: [sika.link/if20-terraform](https://sika.link/if20-terraform)
+
 
 ## Related Repositories
 
