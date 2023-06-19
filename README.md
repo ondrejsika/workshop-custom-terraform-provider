@@ -15,10 +15,11 @@ Alias: [sika.link/if20-terraform](https://sika.link/if20-terraform)
 
 API Server - https://github.com/ondrejsika/demo-cloud-provider/blob/master/server.py
 
-I run two Demo Cloud instances:
+Run it locally:
 
-- prod - https://demo-cloud-prod.panda.k8s.oxs.cz/
-- dev - https://demo-cloud-dev.panda.k8s.oxs.cz/
+```
+docker run -p 8000:8000 ondrejsika/demo-cloud-provider
+```
 
 Demo cloud has two resources: Box and Text
 
@@ -27,21 +28,21 @@ You can create a box and put some texts into box:
 You can try it by curl:
 
 ```
-curl -X POST --data '{"name": "Hello Box"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/
-curl -X POST --data '{"text": "Hello"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/
-curl -X POST --data '{"text": "World"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/
+curl -X POST --data '{"name": "Hello Box"}' -H Content-Type:application/json http://127.0.0.1:8000/v1/box/
+curl -X POST --data '{"text": "Hello"}' -H Content-Type:application/json http://127.0.0.1:8000/v1/box/1/text/
+curl -X POST --data '{"text": "World"}' -H Content-Type:application/json http://127.0.0.1:8000/v1/box/1/text/
 ```
 
-Check the https://demo-cloud-dev.panda.k8s.oxs.cz/
+Check the http://127.0.0.1:8000/
 
 See your objects? Let's update them:
 
 ```
-curl -X PUT --data '{"text": "Ahoj"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/5/
-curl -X PUT --data '{"text": "Svete"}' -H Content-Type:application/json https://demo-cloud-dev.panda.k8s.oxs.cz/v1/box/3/text/6/
+curl -X PUT --data '{"text": "Ahoj"}' -H Content-Type:application/json http://127.0.0.1:8000/v1/box/1/text/1/
+curl -X PUT --data '{"text": "Svete"}' -H Content-Type:application/json http://127.0.0.1:8000/v1/box/1/text/2/
 ```
 
-Check the https://demo-cloud-dev.panda.k8s.oxs.cz/ again
+Check the http://127.0.0.1:8000/ again
 
 
 ### API
@@ -222,7 +223,7 @@ package main
 import "fmt"
 
 func main(){
-	res, _ := GetApi("https://demo-cloud-dev.panda.k8s.oxs.cz/", "xxx", "/v1/box/")
+	res, _ := GetApi("http://127.0.0.1:8000/", "xxx", "/v1/box/")
 	fmt.Println(res)
 }
 ```
@@ -249,7 +250,7 @@ package main
 import "fmt"
 
 func main(){
-	res, _ := ListBoxesApi("https://demo-cloud-dev.panda.k8s.oxs.cz/", "xxx")
+	res, _ := ListBoxesApi("http://127.0.0.1:8000/", "xxx")
 	fmt.Println(res)
 }
 ```
